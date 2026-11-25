@@ -1,0 +1,75 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Notes App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="app-header">
+    <div class="header-inner">
+      <h1>📝 My Notes</h1>
+      <button id="themeBtn" class="theme-btn">🌙 Dark Mode</button>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section class="note-form">
+      <input type="text" id="noteTitle" placeholder="Title of notes..." aria-label="Note title">
+      <textarea id="noteContent" placeholder=" Enter your notes here... (Ctrl + Enter to save)" aria-label="Note content"></textarea>
+
+      <div class="form-row">
+        <select id="noteCategory" aria-label="Category">
+          <option value="Personal">Personal</option>
+          <option value="Study">Study</option>
+          <option value="Work">Work</option>
+          <option value="Ideas">Ideas</option>
+        </select>
+        <span id="charCount" class="char-count">0 words, 0 characters</span>
+      </div>
+
+      <div class="form-buttons">
+        <button id="addBtn">Add Note</button>
+        <button id="cancelBtn" class="secondary-btn" hidden>Cancel</button>
+      </div>
+    </section>
+
+    <div class="toolbar">
+      <input type="text" id="searchInput" class="search-box" placeholder="🔍 Search Notes ..." aria-label="Search notes">
+      <select id="sortSelect" aria-label="Sort notes">
+        <option value="newest">Newest first</option>
+        <option value="oldest">Oldest first</option>
+        <option value="az">A to Z</option>
+      </select>
+    </div>
+
+    <div id="categoryFilters" class="chips">
+      <button class="chip active" data-filter="All">All</button>
+      
+      <button class="chip" data-filter="Pinned">📌 Pinned</button>
+      <button class="chip" data-filter="Personal">Personal</button>
+      <button class="chip" data-filter="Study">Study</button>
+      <button class="chip" data-filter="Work">Work</button>
+      <button class="chip" data-filter="Ideas">Ideas</button>
+    </div>
+
+    <p id="noteCount" class="note-count"></p>
+
+    <section id="notesContainer"></section>
+
+    <div class="data-actions">
+      <button id="exportBtn" class="secondary-btn">⬇️ Export backup</button>
+      <button id="importBtn" class="secondary-btn">⬆️ Import backup</button>
+      <input type="file" id="importFile" accept=".json,application/json" hidden>
+    </div>
+
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
